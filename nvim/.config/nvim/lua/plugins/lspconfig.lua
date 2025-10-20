@@ -189,8 +189,20 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         clangd = {},
-        -- gopls = {},
-        pyright = {},
+        -- gopls = {
+        pyright = {
+          settings = {
+            python = {
+              analysis = {
+                -- Disable Pyright's diagnostics that Ruff also provides
+                typeCheckingMode = 'off',           -- or "off" to disable all type checking
+                diagnosticSeverityOverrides = {
+                  reportUndefinedVariable = 'none', -- Let Ruff handle this
+                },
+              },
+            },
+          },
+        },
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -200,7 +212,7 @@ return {
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
-
+        ruff = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
