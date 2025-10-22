@@ -26,7 +26,8 @@ require('lazy').setup({
   require 'plugins.lspconfig',
   require 'plugins.conform',
   require 'plugins.blink-cmp',
-  require 'plugins.tokyonight',
+  -- require 'plugins.tokyonight',
+  require 'plugins.catpppuccin',
   require 'plugins.todo-comments',
   require 'plugins.mini',
   require 'plugins.treesitter',
@@ -35,7 +36,7 @@ require('lazy').setup({
   require 'plugins.indent_line',
   require 'plugins.lint',
   require 'plugins.autopairs',
-
+  require 'plugins.nvim-tmux-navigation',
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
   --

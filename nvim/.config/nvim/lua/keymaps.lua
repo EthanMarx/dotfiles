@@ -14,6 +14,9 @@ vim.keymap.set('n', '<leader>bd', '<cmd>bd<CR>', { desc = 'Close buffer' })
 vim.keymap.set('n', '<leader>Q', '<cmd>qa<CR>', { desc = 'Close Neovim' })
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save file' })
 vim.keymap.set('n', '<leader>x', '<cmd>x<CR>', { desc = 'Save and quit' })
+vim.keymap.set('n', '<C-C>', '<Esc>', { desc = 'Save and quit' })
+
+vim.keymap.set('t', '<C-[>', '<C-\\><C-n>', { desc = 'escape terminal mode' })
 -- Diagnostic keymaps
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
