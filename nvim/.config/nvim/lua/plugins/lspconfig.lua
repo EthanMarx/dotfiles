@@ -20,11 +20,12 @@ return {
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as uire('mason').setup({})`
       { 'mason-org/mason.nvim', opts = {} },
+
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim',    opts = {} },
+      { 'j-hui/fidget.nvim', opts = {} },
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
@@ -37,14 +38,6 @@ return {
           if not c then
             return
           end
-
-          -- Format the current buffer on save
-          vim.api.nvim_create_autocmd('BufWritePre', {
-            buffer = event.buf,
-            callback = function()
-              vim.lsp.buf.format { bufnr = event.buf, id = c.id }
-            end,
-          })
 
           local map = function(keys, func, desc, mode)
             mode = mode or 'n'
@@ -90,6 +83,7 @@ return {
           map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
+
           ---@param client vim.lsp.Client
           ---@param method vim.lsp.protocol.Method
           ---@param bufnr? integer some lsp support methods only in specific files
@@ -189,34 +183,24 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         clangd = {},
-        -- gopls = {
-        pyright = {
+        ruff = {},
+        pylsp = {
           settings = {
-            python = {
-              analysis = {
-                -- Disable Pyright's diagnostics that Ruff also provides
-                typeCheckingMode = 'off',           -- or "off" to disable all type checking
-                diagnosticSeverityOverrides = {
-                  reportUndefinedVariable = 'none', -- Let Ruff handle this
-                },
+            pylsp = {
+              plugins = {
+                pyflakes = { enabled = false },
+                pycodestyle = { enabled = false },
+                autopep8 = { enabled = false },
+                yapf = { enabled = false },
+                mccabe = { enabled = false },
+                pylsp_mypy = { enabled = false },
+                pylsp_black = { enabled = false },
+                pylsp_isort = { enabled = false },
               },
             },
           },
         },
-        -- rust_analyzer = {},
-        -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-        --
-        -- Some languages (like typescript) have entire language plugins that can be useful:
-        --    https://github.com/pmizio/typescript-tools.nvim
-        --
-        -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
-        --
-        ruff = {},
         lua_ls = {
-          -- cmd = { ... },
-          -- filetypes = { ... },
-          -- capabilities = {},
           settings = {
             Lua = {
               completion = {
@@ -229,23 +213,9 @@ return {
         },
       }
 
-      -- Ensure the servers and tools above are installed
-      --
-      -- To check the current status of installed tools and/or manually install
-      -- other tools, you can run
-      --    :Mason
-      --
-      -- You can press `g?` for help in this menu.
-      --
-      -- `mason` had to be setup earlier: to configure its options see the
-      -- `dependencies` table for `nvim-lspconfig` above.
-      --
-      -- You can add other tools here that you want Mason to install
-      -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
-        'black',
         'ruff',
         'markdownlint',
       })
@@ -268,4 +238,3 @@ return {
     end,
   },
 }
--- vim: ts=2 sts=2 sw=2 et
