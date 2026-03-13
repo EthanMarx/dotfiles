@@ -41,6 +41,15 @@ vim.keymap.set('n', '<leader>st', function()
   vim.api.nvim_win_set_height(0, 15)
 end)
 
+vim.keymap.set('n', '<leader>td', function()
+  -- Check if diagnostics are currently enabled globally
+  local is_enabled = vim.diagnostic.is_enabled()
+  
+  vim.diagnostic.enable(not is_enabled)
+  
+  print("Diagnostics " .. (is_enabled and "Disabled" or "Enabled"))
+end, { desc = '[T]oggle [D]iagnostics (Global)' })
+
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })

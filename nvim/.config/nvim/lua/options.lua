@@ -39,14 +39,14 @@ vim.o.signcolumn = 'yes'
 -- Decrease update time
 vim.o.updatetime = 250
 
--- Decrease mapped sequence wait time
-vim.o.timeoutlen = 300
+-- Decrease mapped sequence wit time
+vim.o.timeoutlen = 2000
 
 -- Configure how new splits should be opened
 vim.o.splitright = true
 vim.o.splitbelow = true
 
--- Sets how neovim will display certain whitespace characters in the editor.
+-- Sets how neovim will disply certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 --
