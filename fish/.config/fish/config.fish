@@ -7,8 +7,8 @@ function fish_user_key_bindings
 end
 
 
- 
-
+set -x KAGGLE_API_TOKEN KGAT_77ac1c068341ae42bb8ed27f2757f806 
+set -x EDITOR nvim
 
 
 # >>> conda initialize >>>
