@@ -4,3 +4,6 @@ tmux
 neovim
 fish
 starship
+htop
+build-essential
+
