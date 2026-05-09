@@ -1,0 +1,5 @@
+git
+stow
+tmux
+neovim
+starship
