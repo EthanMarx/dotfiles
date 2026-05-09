@@ -15,6 +15,7 @@ format = ' $symbol '
 disabled = true
 
 [python]
+symbol = 
 format = '[ \($virtualenv\)]($style)'
 style = "yellow bold"
 
