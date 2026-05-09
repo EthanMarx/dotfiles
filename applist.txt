@@ -2,4 +2,5 @@ git
 stow
 tmux
 neovim
+fish
 starship
