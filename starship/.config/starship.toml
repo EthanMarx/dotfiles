@@ -1,0 +1,36 @@
+format = """
+$conda$python$username$hostname$directory$git_branch
+$character
+"""
+
+add_newline = true
+
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[x](bold red)'
+format = ' $symbol '
+
+
+[package]
+disabled = true
+
+[python]
+symbol = ' '
+format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+style = "yellow bold"
+
+[hostname]
+format = '[[lho](green) $hostname]($style) in '
+style = 'bold blue'
+
+[username]
+format = '[$user]($style) on '
+
+[conda]
+ignore_base = false
+style = 'bold green'
+format = '[ \($environment\) ]($style)'
+symbol = ''
+
+[git_branch]
+symbol = ' '
