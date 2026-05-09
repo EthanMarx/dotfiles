@@ -6,4 +6,6 @@ fish
 starship
 htop
 build-essential
+timeshift
+gnome-boxes
 
