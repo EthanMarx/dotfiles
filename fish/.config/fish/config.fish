@@ -7,3 +7,5 @@ function fish_user_key_bindings
 end
 
 set -x EDITOR nvim
+alias vim="nvim"
+alias vi="nvim"
