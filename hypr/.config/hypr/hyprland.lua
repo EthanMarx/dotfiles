@@ -89,7 +89,10 @@ hl.env("HYPRCURSOR_SIZE", "24")
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
-    general = {
+	xwayland = {
+        force_zero_scaling = true
+    },
+	general = {
         gaps_in  = 10,
         gaps_out = 20,
 
