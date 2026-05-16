@@ -1,0 +1,36 @@
+{
+    "layer": "top",
+    "position": "top",
+	"margin-top": 5,
+	"margin-right": 10,
+	"margin-left": 10,
+	"height": 35,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["bluetooth", "network"],
+
+    "hyprland/workspaces": {
+		"sort-by-number": true,
+		"persistent-workspaces": {
+			"*": 4
+		}
+    },
+    "clock": {
+		"format": "{:%A, %b %d %H:%M}",
+        "format-alt": "{:%I:%M %p}"
+    },
+    "bluetooth": {
+		"format-on": "",
+		"format-connected": " {device_battery_percentage}%",
+		"format-connected": " {device_battery_percentage}%",
+		"tooltip-format": "{device_alias}",
+		"on-click": "bash -c 'bluetoothctl power on >/dev/null; sleep 0.3; ghostty --class=bluetui.float -e bluetui'"
+    },
+    "network": {
+		"format-wifi": "  {essid}",
+		"tooltip": false,
+		"format-disconnected": "  Disconnected",
+		"on-click": "ghostty --class=nmtui.float -e nmtui"
+    }
+
+}
