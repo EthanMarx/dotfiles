@@ -38,7 +38,8 @@ window#waybar {
 #clock,
 #network,
 #bluetooth,
-#workspaces {
+#workspaces,
+#custom-spotify {
     background-color: @mantle; 
     border: 2px solid; 
     padding: 2px 14px;
@@ -63,6 +64,11 @@ window#waybar {
 #network {
     color: @green;
     border-color: @green;
+}
+
+#custom-spotify {
+    color: #1db954;
+    border-color: #1db954;
 }
 
 #network.disconnected {

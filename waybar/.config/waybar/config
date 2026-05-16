@@ -7,7 +7,7 @@
 	"height": 35,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["bluetooth", "network"],
+    "modules-right": ["custom/spotify", "bluetooth", "network"],
 
     "hyprland/workspaces": {
 		"sort-by-number": true,
@@ -25,6 +25,13 @@
 		"format-connected": " {device_battery_percentage}%",
 		"tooltip-format": "{device_alias}",
 		"on-click": "bash -c 'bluetoothctl power on >/dev/null; sleep 0.3; ghostty --class=bluetui.float -e bluetui'"
+    },
+    "custom/spotify": {
+        "exec": "playerctl metadata --player=spotify --format '󰓇  {{artist}} - {{title}}' 2>/dev/null",
+        "interval": 3,
+        "on-click": "playerctl play-pause --player=spotify",
+        "max-length": 40,
+        "escape": true
     },
     "network": {
 		"format-wifi": "  {essid}",
