@@ -1,0 +1,10 @@
+# Primary Programming Font
+font-family = "JetBrainsMono Nerd Font"
+
+# Emoji Fallback Font
+font-family = "Noto Color Emoji"
+
+
+background-opacity = 0.9
+
+
