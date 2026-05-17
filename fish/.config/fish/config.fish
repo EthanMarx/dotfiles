@@ -6,6 +6,11 @@ function fish_user_key_bindings
 	bind \cn history-search-forward
 end
 
+fish_add_path ~/.local/bin/
+
+
 set -x EDITOR nvim
 alias vim="nvim"
 alias vi="nvim"
+
+
