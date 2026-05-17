@@ -34,3 +34,4 @@ symbol = ' '
 
 [directory]
 home_symbol = '~'
+truncate_to_repo = false
