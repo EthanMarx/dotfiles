@@ -58,7 +58,7 @@ yay -S --needed --noconfirm - < "$DOTFILES_DIR/packages.txt"
 info "stowing user configs..."
 cd "$DOTFILES_DIR"
 
-USER_CONFIGS=(fish nvim hypr waybar ghostty starship tmux opencode clang-format editorconfig)
+USER_CONFIGS=(fish nvim hypr waybar ghostty starship tmux opencode clang-format editorconfig gtk)
 for pkg in "${USER_CONFIGS[@]}"; do
     stow --restow --target="$HOME" "$pkg"
     info "stowed $pkg"

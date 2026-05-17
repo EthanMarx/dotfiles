@@ -11,6 +11,7 @@ error_symbol = '[x](bold red)'
 format = ' $symbol '
 
 
+
 [package]
 disabled = true
 
@@ -18,10 +19,6 @@ disabled = true
 symbol = ' '
 format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 style = "yellow bold"
-
-[hostname]
-format = '[[lho](green) $hostname]($style) in '
-style = 'bold blue'
 
 [username]
 format = '[$user]($style) on '
@@ -33,4 +30,4 @@ format = '[ \($environment\) ]($style)'
 symbol = ''
 
 [git_branch]
-symbol = ' '
+symbol = ' '
