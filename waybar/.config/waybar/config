@@ -12,8 +12,8 @@
     "hyprland/workspaces": {
 		"sort-by-number": true,
 		"persistent-workspaces": {
-			"*": 4
-		}
+		 	"*": 5
+		 }
     },
     "clock": {
 		"format": "{:%A, %b %d %H:%M}",
@@ -27,10 +27,8 @@
 		"on-click": "bash -c 'bluetoothctl power on >/dev/null; sleep 0.3; ghostty --class=bluetui.float -e bluetui'"
     },
     "custom/spotify": {
-        "exec": "playerctl metadata --player=spotify --format '󰓇  {{artist}} - {{title}}' 2>/dev/null",
-        "interval": 3,
+        "exec": "~/.config/waybar/scripts/spotify.sh",
         "on-click": "playerctl play-pause --player=spotify",
-        "max-length": 40,
         "escape": true
     },
     "network": {
