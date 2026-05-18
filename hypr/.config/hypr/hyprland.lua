@@ -44,13 +44,12 @@ local music		  = "spotify-launcher"
 -- Or execute your favorite apps at launch like this:
 --
 --
--- TODO: hypridle was giving issues with loading waybar and terminal
 hl.on("hyprland.start", function ()
   hl.exec_cmd("hyprlock --immediate-render")
   hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
   hl.exec_cmd("nm-applet")
-  hl.exec_cmd("waybar")
-  hl.exec_cmd("hyprpaper")
+  hl.exec_cmd("waybar & hyprpaper")
+  hl.exec_cmd("hypridle")
   hl.exec_cmd("wl-paste --type text --watch cliphist store")
   hl.exec_cmd(terminal, {workspace = "1"})
   hl.exec_cmd(browser, {workspace = "2 silent"})
