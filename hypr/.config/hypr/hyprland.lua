@@ -9,7 +9,6 @@
 -- Create your files separately and then require them like this:
 -- require("myColors")
 
-
 ------------------
 ---- MONITORS ----
 ------------------
@@ -44,11 +43,14 @@ local music		  = "spotify-launcher"
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
+--
+-- TODO: hypridle was giving issues with loading waybar and terminal
 hl.on("hyprland.start", function ()
   hl.exec_cmd("hyprlock --immediate-render")
   hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
   hl.exec_cmd("nm-applet")
-  hl.exec_cmd("waybar & hyprpaper")
+  hl.exec_cmd("waybar")
+  hl.exec_cmd("hyprpaper")
   hl.exec_cmd("wl-paste --type text --watch cliphist store")
   hl.exec_cmd(terminal, {workspace = "1"})
   hl.exec_cmd(browser, {workspace = "2 silent"})
@@ -66,7 +68,7 @@ hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
 -- Dark mode
-hl.env("QT_QPA_PLATFORMTHEME", "gnome")  -- Qt follows GTK theme
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")  -- Qt follows GTK theme
 hl.env("GTK_THEME", "Adwaita:dark")
 
 
@@ -287,9 +289,10 @@ local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(music))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(email))
+hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("pkill waybar; waybar"))
